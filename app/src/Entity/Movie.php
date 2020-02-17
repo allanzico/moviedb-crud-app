@@ -37,6 +37,12 @@ class Movie
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Genre", inversedBy="movies")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $genre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,5 +98,17 @@ class Movie
 
     public  function transformJson(){
 
+    }
+
+    public function getGenre(): ?Genre
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?Genre $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
     }
 }

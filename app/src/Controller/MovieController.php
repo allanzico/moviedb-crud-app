@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Genre;
 use App\Entity\Movie;
 use App\Repository\MovieRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -58,7 +59,8 @@ class MovieController extends AbstractController
             'title'=> $movie->getTitle(),
             'created_at'=>$movie->getCreatedAt(),
             'updated_at'=>$movie->getUpdatedAt(),
-            'year_watched'=>$movie->getYearWatched()
+            'year_watched'=>$movie->getYearWatched(),
+            'genre'=>$movie->getGenre()->getId()
         ];
     }
 
@@ -86,7 +88,8 @@ class MovieController extends AbstractController
         $movie->setTitle($data['title'])
             ->setCreatedAt()
             ->setUpdateAt()
-            ->setYearWatched($data['year_watched']);
+            ->setYearWatched($data['year_watched'])
+            ->setGenre($this->entityManager->find(Genre::class, $data['genre_id']));
 
         $this->entityManager->persist($movie);
         $this->entityManager->flush();
@@ -106,7 +109,8 @@ class MovieController extends AbstractController
         $movie->setTitle($data['title'])
             ->setCreatedAt()
             ->setUpdateAt()
-            ->setYearWatched($data['year_watched']);
+            ->setYearWatched($data['year_watched'])
+            ->setGenre($this->entityManager->find(Genre::class, $data['genre_id']));
         $this->entityManager->persist($movie);
         $this->entityManager->flush();
 
