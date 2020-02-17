@@ -36,14 +36,14 @@ class MovieController extends AbstractController
     //Get single movie by ID
 
     /**
-     * @Route("/api/movies/{id}", name="get_movie", methods={"GET"})
-     * @param $id
+     * @Route("/api/movies/{movie}", name="get_movie", methods={"GET"})
+     * @param Movie $movie
      * @return Response
      */
-    public function getOneMovie($id){
-        $movie = $this->entityManager->getRepository(Movie::class)->findOneBy(['id'=> $id]);
+    public function getOneMovie(Movie $movie)
+    {
         $data = $this->transformSingleMovie($movie);
-        return new Response(json_encode($data));
+        return new JsonResponse($data);
 
     }
 
@@ -91,18 +91,17 @@ class MovieController extends AbstractController
         $this->entityManager->persist($movie);
         $this->entityManager->flush();
 
-        return new JsonResponse(['text'=>'Successfully added a new movie']);
+        return new JsonResponse($data);
     }
 
     /**
-     * @Route("/api/movie/update/{id}", name="update_movie", methods={"PUT"})
-     * @param $id
+     * @Route("/api/movie/update/{movie}", name="update_movie", methods={"PUT"})
+     * @param Movie $movie
      * @param Request $request
      * @return JsonResponse
      */
-    public function updateMovie($id, Request $request){
-        $movie = $this->entityManager->getRepository(Movie::class)->findOneBy(['id'=> $id]);
-       // $data = $this->transformSingleMovie($movie);
+    public function updateMovie(Movie $movie, Request $request)
+    {
         $data = json_decode($request->getContent(),true);
         $movie->setTitle($data['title'])
             ->setCreatedAt()
@@ -111,28 +110,25 @@ class MovieController extends AbstractController
         $this->entityManager->persist($movie);
         $this->entityManager->flush();
 
-        return new JsonResponse(['text'=>'Movie with id '.$id.' edited successful']);
+        return new JsonResponse($data);
     }
 
     /**
-     * @Route("/api/movie/delete/{id}", name="delete_movie", methods={"DELETE"})
-     * @param $id
+     * @Route("/api/movie/delete/{movie}", name="delete_movie", methods={"DELETE"})
+     * @param Movie $movie
      * @return JsonResponse
      */
 
-    public function deleteMovie($id){
-        $movie = $this->entityManager->getRepository(Movie::class)->findOneBy(['id'=> $id]);
+    public function deleteMovie(Movie $movie){
+
         if ($movie) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($movie);
             $entityManager->flush();
         }
 
-        return new JsonResponse(['text'=>'Movie with id '.$id.' deleted successful']);
+        return new JsonResponse(['text'=>'Movie with id '.$movie->getId().' deleted successful']);
 
     }
 
-    public function serializer($data, SerializerInterface $serializer){
-        return $this->$serializer->serialize($data, 'json');
-    }
 }
