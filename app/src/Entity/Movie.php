@@ -25,7 +25,7 @@ class Movie
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $year_watched;
+    private $year_produced;
 
     /**
      * @ORM\Column(type="datetime")
@@ -60,14 +60,14 @@ class Movie
         return $this;
     }
 
-    public function getYearWatched(): ?string
+    public function getYearProduced(): ?string
     {
-        return $this->year_watched;
+        return $this->year_produced;
     }
 
-    public function setYearWatched(string $year_watched): self
+    public function setYearProduced(string $year_produced): self
     {
-        $this->year_watched = $year_watched;
+        $this->year_produced = $year_produced;
 
         return $this;
     }

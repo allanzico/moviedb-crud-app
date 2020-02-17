@@ -59,8 +59,9 @@ class MovieController extends AbstractController
             'title'=> $movie->getTitle(),
             'created_at'=>$movie->getCreatedAt(),
             'updated_at'=>$movie->getUpdatedAt(),
-            'year_watched'=>$movie->getYearWatched(),
-            'genre'=>$movie->getGenre()->getId()
+            'year_produced'=>$movie->getYearProduced(),
+            'genre_id'=>$movie->getGenre()->getId(),
+            'genre_name'=>$movie->getGenre()->getName()
         ];
     }
 
@@ -88,7 +89,7 @@ class MovieController extends AbstractController
         $movie->setTitle($data['title'])
             ->setCreatedAt()
             ->setUpdateAt()
-            ->setYearWatched($data['year_watched'])
+            ->setYearProduced($data['year_produced'])
             ->setGenre($this->entityManager->find(Genre::class, $data['genre_id']));
 
         $this->entityManager->persist($movie);
@@ -109,7 +110,7 @@ class MovieController extends AbstractController
         $movie->setTitle($data['title'])
             ->setCreatedAt()
             ->setUpdateAt()
-            ->setYearWatched($data['year_watched'])
+            ->setYearProduced($data['year_produced'])
             ->setGenre($this->entityManager->find(Genre::class, $data['genre_id']));
         $this->entityManager->persist($movie);
         $this->entityManager->flush();
