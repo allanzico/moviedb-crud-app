@@ -6,8 +6,11 @@ class MovieNew extends  Component{
         super(props);
     }
     render(){
-        return 'TEST';
+
+        console.log('TEST');
     }
+
+
 }
 
 export default MovieNew;

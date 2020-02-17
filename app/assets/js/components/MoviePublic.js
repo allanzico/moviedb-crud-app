@@ -3,6 +3,11 @@
 import React, {Component} from 'react';
 import { Card, CardText, CardBody,CardTitle, Container,Row, Col, Badge  } from 'reactstrap';
 import MovieNew from "./MovieNew";
+import {Link} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import NavBar from "./NavBar";
+import Button from "reactstrap/lib/Button";
+import history from "./history";
 
 
 
@@ -14,6 +19,7 @@ class MoviePublic extends Component {
             movies: null,
         };
         this.fetchMovies = this.fetchMovies.bind(this);
+
     }
 
     componentDidMount() {
@@ -27,6 +33,7 @@ class MoviePublic extends Component {
                 this.setState({ movies: data })
             }).catch(console.log)
     }
+
 
     render() {
         return (
@@ -49,12 +56,9 @@ class MoviePublic extends Component {
                 }
 
                 <div className={'row text-center'} style={{marginTop:40}}>
-                    <button
-                        className={"btn btn-success text-center"}
-                        onClick={() => {this.MovieNew()}}
-                    >
-                        Add New Movie
-                    </button>
+                  <Link to="/MovieNew" className="btn btn-primary">Add New Movies</Link>
+                    <Button variant="btn btn-success" onClick={() => history.push('/MovieNew')}>ADD</Button>
+
                 </div>
 
             </Container>
