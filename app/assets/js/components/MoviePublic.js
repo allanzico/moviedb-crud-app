@@ -1,14 +1,11 @@
 // assets/js/components/publicResources.js
 
 import React, {Component} from 'react';
-import { Card, CardText, CardBody,CardTitle, Container,Row, Col, Badge  } from 'reactstrap';
+import { Card, CardText, CardBody,CardTitle, Container,Row, Col, Badge, Button  } from 'reactstrap';
 import MovieNew from "./MovieNew";
-import {Link} from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import {Link, NavLink, NavLinkLink} from "react-router-dom";
+import { Router, browserHistory, Route, IndexRoute, withRouter } from "react-router";
 import NavBar from "./NavBar";
-import Button from "reactstrap/lib/Button";
-import history from "./history";
-
 
 
 class MoviePublic extends Component {
@@ -21,6 +18,7 @@ class MoviePublic extends Component {
         this.fetchMovies = this.fetchMovies.bind(this);
 
     }
+
 
     componentDidMount() {
         this.fetchMovies();
@@ -43,11 +41,14 @@ class MoviePublic extends Component {
                     {this.state.movies.map(data =>
                         <Col xs="4" id={data.id} key={data.id}>
                             <Card>
-                                <CardBody>
+                                <CardBody className="movies-card">
                                     <CardTitle>{data.title}</CardTitle>
                                     <CardText>{data.year_produced}</CardText>
-                                    <span> Genre:  <Badge color="info" pill>{data.genre_name}</Badge></span>
+                                    <CardText> Genre:  <Badge color="info" pill>{data.genre_name}</Badge></CardText>
 
+                                    <CardText>
+                                        <Link to={`/edit-movie/${data.id}` }className="btn btn-dark">Edit</Link>
+                                    </CardText>
                                 </CardBody>
                             </Card>
                         </Col>
@@ -56,8 +57,7 @@ class MoviePublic extends Component {
                 }
 
                 <div className={'row text-center'} style={{marginTop:40}}>
-                  <Link to="/MovieNew" className="btn btn-primary">Add New Movies</Link>
-                    <Button variant="btn btn-success" onClick={() => history.push('/MovieNew')}>ADD</Button>
+                  <Link to="/new-movie" className="btn btn-dark">Add New Movies</Link>
 
                 </div>
 

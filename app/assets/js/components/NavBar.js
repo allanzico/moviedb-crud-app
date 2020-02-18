@@ -12,6 +12,7 @@ function NavBar() {
 
                     <li className="nav-item">
                         <Link className={"nav-link"} to={"/"}> Public Route </Link>
+
                     </li>
                 </ul>
             </div>
