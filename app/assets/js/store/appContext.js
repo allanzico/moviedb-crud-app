@@ -34,7 +34,7 @@ const injectContext = PassedComponent => {
 
 			//Call the fetch function from flux.js
 			state.actions.loadMovies();
-			state.actions.getGenres();
+			state.actions.loadGenres();
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

@@ -92,6 +92,7 @@ class MovieController extends AbstractController
             ->setYearProduced($data['year_produced'])
             ->setGenre($this->entityManager->find(Genre::class, $data['genre']));
 
+
         $this->entityManager->persist($movie);
         $this->entityManager->flush();
 

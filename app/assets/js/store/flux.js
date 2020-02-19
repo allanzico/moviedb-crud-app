@@ -1,4 +1,5 @@
-const url = "/api/movies";
+const movieUrl = "/api/movies";
+const genreUrl ="/api/genre";
 
 const getState = ({ getStore,  setStore }) => {
 
@@ -6,13 +7,13 @@ const getState = ({ getStore,  setStore }) => {
 
 		store: {
 			movies: [],
-			genres:  []
+			genres:[],
 		},
 		actions: {
 
 			//Fetch Movies
 			loadMovies(){
-				fetch(url).then(res =>res.json())
+				fetch(movieUrl).then(res =>res.json())
 					.then(data => {
 						setStore({
 							movies: data
@@ -22,7 +23,7 @@ const getState = ({ getStore,  setStore }) => {
 
 			//Add new movies
 			addMovies(title, produced, genre){
-				fetch(url + "/add", {
+				fetch(movieUrl + "/add", {
 					method: "POST",
 					headers: { "Content-type": "application/json" },
 					body: JSON.stringify({
@@ -31,7 +32,7 @@ const getState = ({ getStore,  setStore }) => {
 						genre: genre
 					})
 				}).then(() => {
-					fetch(url).then(res =>res.json())
+					fetch(movieUrl).then(res =>res.json())
 						.then(data => {
 							setStore({
 								movies: data
@@ -42,7 +43,7 @@ const getState = ({ getStore,  setStore }) => {
 
 			//Edit movie
 			editMovies(id,title, produced, genre){
-				fetch(url + "/update/" + id, {
+				fetch(movieUrl + "/update/" + id, {
 					method: "PUT",
 					headers: { "Content-type": "application/json" },
 					body: JSON.stringify({
@@ -51,7 +52,7 @@ const getState = ({ getStore,  setStore }) => {
 						genre: genre
 					})
 				}).then(() => {
-					fetch(url).then(res =>res.json())
+					fetch(movieUrl).then(res =>res.json())
 						.then(data => {
 							setStore({
 								movies: data
@@ -62,10 +63,10 @@ const getState = ({ getStore,  setStore }) => {
 
 			//Delete Movie
 			deleteMovies(id){
-				fetch(url + "/delete/" + id, {
+				fetch(movieUrl + "/delete/" + id, {
 					method: "DELETE"
 				}).then(() => {
-					fetch(url).then(res =>res.json())
+					fetch(movieUrl).then(res =>res.json())
 						.then(data => {
 							setStore({
 								movies: data
@@ -75,15 +76,16 @@ const getState = ({ getStore,  setStore }) => {
 			},
 
 			//Fetch genres
-				getGenres(){
-					fetch('/api/genres').then(res =>res.json())
-						.then(genreData => {
-							console.log(genreData)
-							setStore({
-								genres: genreData
-							});
+
+			loadGenres(){
+				fetch(genreUrl).then(res =>res.json())
+					.then(genreData => {
+						setStore({
+							genres: genreData
 						})
-				}
+					})
+			}
+
 			}
 
 		};

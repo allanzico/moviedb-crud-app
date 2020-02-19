@@ -7,8 +7,8 @@ export  const AddMovie =() => {
     const [title, setTitle] = useState("");
     const [produced, setProduced] = useState("");
     const [genre, setGenre] = useState("");
-    let  data = store.genres;
-    console.log(data);
+    const data = store.genres;
+    console.log(data)
 
     return (
         <div className="container">
@@ -33,26 +33,26 @@ export  const AddMovie =() => {
                             onChange={e => setProduced(e.target.value)}
                         />
                     </div>
+
                     <div className="form-group">
                         <label>Genre</label>
                         <input
-                            type="number"
+                            type="text"
                             className="form-control"
-                            placeholder="Movie Genre"
+                            placeholder="genre"
                             onChange={e => setGenre(e.target.value)}
                         />
                     </div>
-                    <div className="form-group">
-                        <label>Select Genre</label>
-                        <select onChange={e => setGenre(e.target.value)}>
-                            {/*{*/}
-                            {/*    data.map((d)=> <option key={d.id}>{d.genre_name}</option>*/}
-                            {/*    )*/}
-                            {/*}*/}
-                            <option>{data.name}</option>
 
-                        </select>
-                    </div>
+                   {/* <div className="form-group">*/}
+                   {/*     <label>Select Genre</label>*/}
+                   {/*     <select value={genre} onChange={e => setGenre(e.target.value)}>*/}
+                   {/*         {*/}
+                   {/*             data.map((genre)=> <option value={genre.id} key={genre.id}>{genre.name}</option>*/}
+                   {/*             )*/}
+                   {/*         }*/}
+                   {/*</select>*/}
+                   {/* </div>*/}
 
                     <Link to={"/"}>
                         <button
