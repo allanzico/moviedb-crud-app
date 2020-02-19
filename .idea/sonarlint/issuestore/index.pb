@@ -23,11 +23,3 @@ H
 app/src/Entity/Movie.php,d/0/d012b70eab43ebaf0755ec4078b9440cea0e3342
 H
 app/src/Entity/Genre.php,e/2/e21d56a804c689db6c119b53c347926fcfaebf1b
-P
- app/assets/js/components/Home.js,d/7/d70cc9abeb21f661749996198cb574a15c70491c
-R
-"app/assets/js/components/NavBar.js,0/5/05720837ff28b7b3db569c1f3f6209e17dccab20
-T
-$app/assets/js/components/MovieNew.js,9/a/9a47d17c4ef7d541b16d625f2aab7e46f3c56bcb
-W
-'app/assets/js/components/MoviePublic.js,d/0/d01e749c3bacd636aef7257e9e4b5b3e160fafc8

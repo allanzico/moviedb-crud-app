@@ -1,9 +1,12 @@
-const getState = ({ getStore, getActions, setStore }) => {
-	const url = "/api/movies";
+const url = "/api/movies";
+
+const getState = ({ getStore,  setStore }) => {
+
 	return {
 
 		store: {
-			movies: []
+			movies: [],
+			genres:  []
 		},
 		actions: {
 
@@ -55,7 +58,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 							});
 						})
 				});
-			}
+			},
+
+			//Delete Movie
+			deleteMovies(id){
+				fetch(url + "/delete/" + id, {
+					method: "DELETE"
+				}).then(() => {
+					fetch(url).then(res =>res.json())
+						.then(data => {
+							setStore({
+								movies: data
+							});
+						})
+				});
+			},
+
+			//Fetch genres
+				getGenres(){
+					fetch('/api/genres').then(res =>res.json())
+						.then(genreData => {
+							console.log(genreData)
+							setStore({
+								genres: genreData
+							});
+						})
+				}
 			}
 
 		};

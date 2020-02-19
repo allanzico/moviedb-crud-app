@@ -7,10 +7,10 @@ import PropTypes from "prop-types";
 export const EditMovie = props =>{
     const {store, actions} = useContext(Context);
     let id = props.match.params.id;
-    let short = store.movies[props.match.params];
-    const [title, setTitle] = useState(short.title);
-    const [produced, setProduced] = useState(short.year_produced);
-    const [genre, setGenre] = useState(short.genre);
+    let data = store.movies[props.match.params];
+    const [title, setTitle] = useState("");
+    const [produced, setProduced] = useState("");
+    const [genre, setGenre] = useState("");
 
     console.log(store.movies);
 

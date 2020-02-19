@@ -1,9 +1,10 @@
 import  React, {useState, useEffect,useContext} from "react";
 import { withRouter } from "react-router-dom";
-import {Badge, Card, CardBody, CardText, CardTitle, Col, Container, Row} from "reactstrap";
+import {Badge, Card, CardBody, CardText, CardTitle, Col, Row} from "reactstrap";
 import {Link} from "react-router-dom";
 import {Context} from "../store/appContext";
 import  PropTypes from "prop-types";
+import Button from "reactstrap/es/Button";
 
 
 export  const MovieCard = props =>{
@@ -21,7 +22,8 @@ const {store, actions} = useContext(Context);
                                 <CardText> Genre:  <Badge color="info" pill>{data.genre_name}</Badge></CardText>
                                 <CardText>
                                     <Link to={"/edit/" +data.id } className="btn btn-success btn-sm">Edit</Link>
-                                    <Link to={"/delete/" +data.id} className="btn btn-danger btn-sm">Delete</Link>
+                                    <Button className="btn btn-danger btn-sm"
+                                            onClick={() => {actions.deleteMovies(data.id)}}>Delete</Button>
                                 </CardText>
                             </CardBody>
                         </Card>
