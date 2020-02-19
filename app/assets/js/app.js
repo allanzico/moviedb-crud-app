@@ -9,30 +9,8 @@
 import '../css/app.css';
 import React, {Component} from "react";
 import ReactDom from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
-import Home from "./components/Home";
-import MovieNew from "./components/MovieNew";
-import MovieEdit from "./components/MovieEdit";
 
+//import your own components
+import Layout from "./layout";
 
-
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
-
-class App extends Component{
-    render() {
-        return (
-            <BrowserRouter>
-                <div>
-                    <Home/>
-                    <Route path="/new-movie" component={MovieNew}/>
-                    <Route path="/edit-movie/:id" component={MovieEdit}/>
-                </div>
-            </BrowserRouter>
-
-
-        )
-    }
-}
-
-ReactDom.render(<App/>, document.getElementById('root'));
+ReactDom.render(<Layout />, document.getElementById('root'));

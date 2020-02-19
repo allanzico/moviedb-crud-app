@@ -1,4 +1,4 @@
-// assets/js/components/publicResources.js
+// assets/js/components-old/publicResources.js
 
 import React, {Component} from 'react';
 import { Card, CardText, CardBody,CardTitle, Container,Row, Col, Badge, Button  } from 'reactstrap';
@@ -47,7 +47,7 @@ class MoviePublic extends Component {
                                     <CardText> Genre:  <Badge color="info" pill>{data.genre_name}</Badge></CardText>
 
                                     <CardText>
-                                        <Link to={`/edit-movie/${data.id}` }className="btn btn-dark">Edit</Link>
+                                        <Link to={`/api/update/${data.id}` }className="btn btn-dark">Edit</Link>
                                     </CardText>
                                 </CardBody>
                             </Card>

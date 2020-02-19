@@ -9,10 +9,9 @@ class MovieEdit extends  Component{
 
     state = {
         movie: {}
-    };
+    }
     constructor(props) {
         super(props);
-
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
@@ -25,6 +24,7 @@ class MovieEdit extends  Component{
 
     componentDidMount() {
         fetch(`/api/movies/${this.props.match.params.id}`)
+            .then(Response => Response.json())
             .then((data) => {
                 console.log(data);
                 this.setState({ movie: data })
@@ -49,11 +49,13 @@ class MovieEdit extends  Component{
         return (
             <div>
                 <Form onSubmit={this.handleSubmit}
-                      movie-title = {this.state.movie.title}
+                      title = {this.state.movie.title}
                  year_produced = {this.state.movie.year_produced}
                   genre={this.state.movie.genre}
                 />
             </div>
+
+
         )
     }
 }

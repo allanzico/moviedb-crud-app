@@ -79,7 +79,7 @@ class MovieController extends AbstractController
     }
 
     /**
-     * @Route("/api/add_movie", name="add_movie", methods={"POST"})
+     * @Route("/api/movies/add", name="add_movie", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -99,7 +99,7 @@ class MovieController extends AbstractController
     }
 
     /**
-     * @Route("/api/movie/update/{movie}", name="update_movie", methods={"PUT"})
+     * @Route("/api/movies/update/{movie}", name="update_movie", methods={"PUT"})
      * @param Movie $movie
      * @param Request $request
      * @return JsonResponse
@@ -119,7 +119,7 @@ class MovieController extends AbstractController
     }
 
     /**
-     * @Route("/api/movie/delete/{movie}", name="delete_movie", methods={"DELETE"})
+     * @Route("/api/movies/delete/{movie}", name="delete_movie", methods={"DELETE"})
      * @param Movie $movie
      * @return JsonResponse
      */
