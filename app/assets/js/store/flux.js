@@ -11,7 +11,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadMovies(){
 				fetch(url).then(res =>res.json())
 					.then(data => {
-						console.log(data);
 						setStore({
 							movies: data
 						});
@@ -31,7 +30,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}).then(() => {
 					fetch(url).then(res =>res.json())
 						.then(data => {
-							console.log(data);
+							setStore({
+								movies: data
+							});
+						})
+				});
+			},
+
+			//Edit movie
+			editMovies(id,title, produced, genre){
+				fetch(url + "/update/" + id, {
+					method: "PUT",
+					headers: { "Content-type": "application/json" },
+					body: JSON.stringify({
+						title: title,
+						year_produced: produced,
+						genre: genre
+					})
+				}).then(() => {
+					fetch(url).then(res =>res.json())
+						.then(data => {
 							setStore({
 								movies: data
 							});

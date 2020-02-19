@@ -111,7 +111,7 @@ class MovieController extends AbstractController
             ->setCreatedAt()
             ->setUpdateAt()
             ->setYearProduced($data['year_produced'])
-            ->setGenre($this->entityManager->find(Genre::class, $data['genre_id']));
+            ->setGenre($this->entityManager->find(Genre::class, $data['genre']));
         $this->entityManager->persist($movie);
         $this->entityManager->flush();
 
