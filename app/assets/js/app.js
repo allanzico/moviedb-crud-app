@@ -6,7 +6,7 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import '../css/app.css';
+import "../css/app.css";
 import React, {Component} from "react";
 import ReactDom from 'react-dom';
 
