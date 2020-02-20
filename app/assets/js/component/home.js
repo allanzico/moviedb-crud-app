@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import Movies from "../component/movies";
+import Movies from "./movies";
 
 export const Home = () => {
 	return(

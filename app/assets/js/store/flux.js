@@ -23,6 +23,7 @@ const getState = ({ getStore,  setStore }) => {
 
 			//Add new movies
 			addMovies(title, produced, genre){
+				console.log(genre);
 				fetch(movieUrl + "/add", {
 					method: "POST",
 					headers: { "Content-type": "application/json" },

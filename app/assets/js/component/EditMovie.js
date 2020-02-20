@@ -6,13 +6,14 @@ import PropTypes from "prop-types";
 
 export const EditMovie = props =>{
     const {store, actions} = useContext(Context);
+    const genres = store.genres;
     let id = props.match.params.id;
-    let data = store.movies[props.match.params];
-    const [title, setTitle] = useState("");
-    const [produced, setProduced] = useState("");
-    const [genre, setGenre] = useState("");
+    const movie = store.movies[props.match.params.id];
+    const [title, setTitle] = useState(movie.title);
+    const [produced, setProduced] = useState(movie.year_produced);
+    const [genre, setGenre] = useState(movie.genre);
 
-    console.log(store.movies);
+    console.log(movie);
 
     return (
         <div className="container">
@@ -39,15 +40,26 @@ export const EditMovie = props =>{
                             onChange={e => setProduced(e.target.value)}
                         />
                     </div>
+                    {/*<div className="form-group">*/}
+                    {/*    <label>Genre</label>*/}
+                    {/*    <input*/}
+                    {/*        type="number"*/}
+                    {/*        className="form-control"*/}
+                    {/*        placeholder="Movie Genre"*/}
+                    {/*        defaultValue={genre}*/}
+                    {/*        onChange={e => setGenre(e.target.value)}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
+
                     <div className="form-group">
-                        <label>Genre</label>
-                        <input
-                            type="number"
-                            className="form-control"
-                            placeholder="Movie Genre"
-                            defaultValue={genre}
-                            onChange={e => setGenre(e.target.value)}
-                        />
+                        <label>Select Genre</label>
+                        { console.log(genre) }
+                        <select value={genre} onChange={e => setGenre(e.target.value)}>
+                            {
+                                genres.map(genre=>( <option value={genre.id} key={genre.id}>{genre.name}</option>)
+                                )
+                            }
+                        </select>
                     </div>
                     <Link to={"/"}>
                         <button

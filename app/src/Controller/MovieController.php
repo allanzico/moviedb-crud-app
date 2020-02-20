@@ -86,6 +86,7 @@ class MovieController extends AbstractController
     public function addNewMovie(Request $request){
         $data = json_decode($request->getContent(),true);
         $movie = new Movie();
+       // dd($data);
         $movie->setTitle($data['title'])
             ->setCreatedAt()
             ->setUpdateAt()

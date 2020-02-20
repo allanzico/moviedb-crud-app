@@ -4,11 +4,11 @@ import  {Context} from "../store/appContext";
 
 export  const AddMovie =() => {
     const {store, actions} = useContext(Context);
+    const genres = store.genres;
     const [title, setTitle] = useState("");
     const [produced, setProduced] = useState("");
-    const [genre, setGenre] = useState("");
-    const data = store.genres;
-    console.log(data)
+    const [genre, setGenre] = useState(genres[0].id);
+
 
     return (
         <div className="container">
@@ -35,24 +35,15 @@ export  const AddMovie =() => {
                     </div>
 
                     <div className="form-group">
-                        <label>Genre</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="genre"
-                            onChange={e => setGenre(e.target.value)}
-                        />
+                        <label>Select Genre</label>
+                        { console.log(genre) }
+                        <select value={genre} onChange={e => setGenre(e.target.value)}>
+                            {
+                                genres.map(genre=>( <option value={genre.id} key={genre.id}>{genre.name}</option>)
+                                )
+                            }
+                   </select>
                     </div>
-
-                   {/* <div className="form-group">*/}
-                   {/*     <label>Select Genre</label>*/}
-                   {/*     <select value={genre} onChange={e => setGenre(e.target.value)}>*/}
-                   {/*         {*/}
-                   {/*             data.map((genre)=> <option value={genre.id} key={genre.id}>{genre.name}</option>*/}
-                   {/*             )*/}
-                   {/*         }*/}
-                   {/*</select>*/}
-                   {/* </div>*/}
 
                     <Link to={"/"}>
                         <button
