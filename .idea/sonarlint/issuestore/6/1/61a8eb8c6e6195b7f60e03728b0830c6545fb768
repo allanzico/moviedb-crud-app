@@ -1,5 +1,5 @@
 
 j	php:S1192>"NDefine a constant instead of duplicating this literal "year_produced" 3 times.(íŽ®Á8Ä¶È›….
-s	php:S1117‚"QRename "$entityManager" which has the same name as the field declared at line 22.(¸”¶Åùÿÿÿÿ8…«Þ—….
 b	php:S1192;"FDefine a constant instead of duplicating this literal "title" 3 times.(·“Ðˆ8…«Þ—….
-j	php:S1192?"IDefine a constant instead of duplicating this literal "genre_id" 3 times.(úçðÊþÿÿÿÿ8ûª©›….
+?php:S125Y"Remove this commented out code.(ÖéÝºÿÿÿÿÿ8…ŠÏŽ†.
+s	php:S1117„"QRename "$entityManager" which has the same name as the field declared at line 22.(¸”¶Åùÿÿÿÿ8…«Þ—….

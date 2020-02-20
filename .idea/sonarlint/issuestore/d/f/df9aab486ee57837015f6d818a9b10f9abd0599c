@@ -1,0 +1,12 @@
+
+Tjavascript:S1854"3Remove this useless assignment to variable "store".( £Ê®ùÿÿÿÿ
+Vjavascript:S1854"5Remove this useless assignment to variable "actions".( £Ê®ùÿÿÿÿ
+Ejavascript:S1128")Remove this unused import of 'CardTitle'.(Þ‡¦‚
+?javascript:S1128"#Remove this unused import of 'Row'.(Þ‡¦‚
+Ajavascript:S1128"%Remove this unused import of 'Badge'.(Þ‡¦‚
+Djavascript:S1128"(Remove this unused import of 'CardBody'.(Þ‡¦‚
+@javascript:S1128"$Remove this unused import of 'Card'.(Þ‡¦‚
+?javascript:S1128"#Remove this unused import of 'Col'.(Þ‡¦‚
+Djavascript:S1128"(Remove this unused import of 'CardText'.(Þ‡¦‚
+`javascript:UnusedVariable"6Remove the declaration of the unused 'store' variable.( £Ê®ùÿÿÿÿ
+bjavascript:UnusedVariable"8Remove the declaration of the unused 'actions' variable.( £Ê®ùÿÿÿÿ
