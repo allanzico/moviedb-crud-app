@@ -6,11 +6,13 @@ import {MovieCard} from "./MovieCard";
 
 const Movies = () =>{
     const{store, actions} = useContext(Context);
+
     return(
         <Container style={{marginTop:10}}>
 
             <div className={'row text-center'} style={{marginTop:40}}>
                 <Link to="/add" className="btn btn-dark">Add New Movies</Link>
+
             </div>
             <MovieCard/>
         </Container>
