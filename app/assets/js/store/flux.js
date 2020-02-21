@@ -8,9 +8,14 @@ const getState = ({ getStore,  setStore }) => {
 		store: {
 			movies: {},
 			genres:[],
+			movieSortAlgo: "byYearDesc"
 		},
 		actions: {
-
+			updateMovieSort(){
+				setStore({
+					movieSortAlgo: "byYearAsc"
+				})
+			},
 			//Fetch Movies
 			loadMovies(){
 				fetch(movieUrl).then(res =>res.json())

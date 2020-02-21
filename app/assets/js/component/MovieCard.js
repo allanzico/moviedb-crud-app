@@ -8,18 +8,17 @@ import Button from "reactstrap/es/Button";
 
 export  const MovieCard = props =>{
 const {store, actions} = useContext(Context);
-    const  movies = store.movies;
 
-    function sortByProduced(){
-        return Object.values(movies).sort((a,b) => a.year_produced - b.year_produced);
-    }
-    console.log(sortByProduced());
+    const sortingAlgorithms = {
+        "byYearAsc": (a,b) => a.year_produced - b.year_produced,
+        "byYearDesc": (a,b) => b.year_produced - a.year_produced
+    };
 
     return(
         <div>
             {store.movies &&
             <Row style={{marginTop:40}}>
-                {Object.values(store.movies).map((data, index) =>
+                {Object.values(store.movies).sort(sortingAlgorithms[store.movieSortAlgo]).map((data, index) =>
                     <Col xs="4" key={index}>
                         <Card className="movies-card">
                             <CardBody >
@@ -37,15 +36,7 @@ const {store, actions} = useContext(Context);
                 )}
             </Row>
             }
-            <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => {
-                    sortByProduced()
-                }}
-            >
-                SORT ASC
-            </button>
+
         </div>
     )
 };

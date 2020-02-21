@@ -11,7 +11,22 @@ const Movies = () =>{
         <Container style={{marginTop:10}}>
 
             <div className={'row text-center'} style={{marginTop:40}}>
-                <Link to="/add" className="btn btn-dark">Add New Movies</Link>
+                <div className="btn-toolbar mr-2 ">
+                    <div className="btn-group mr-2">
+                        <Link to="/add" className="btn btn-dark">Add New Movies</Link>
+                    </div>
+                    <div className="btn-group mr-2">
+                        <button
+                            type="button"
+                            className="btn btn-primary"
+                            onClick={() => {
+                                actions.updateMovieSort();
+                            }}
+                        >
+                            SORT ASC
+                        </button>
+                    </div>
+                </div>
 
             </div>
             <MovieCard/>
