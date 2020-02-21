@@ -66,12 +66,15 @@ class MovieController extends AbstractController
     }
 
     //Transform All movies with a foreach
+
+
     public function transformAll(){
      $movies = $this->entityManager->getRepository(Movie::class)->findAll();
      $moviesArray = [];
 
+
      foreach ($movies as $movie){
-         $moviesArray[]= $this->transformSingleMovie($movie);
+         $moviesArray[$movie->getId()]= $this->transformSingleMovie($movie);
      }
 
      return new  JsonResponse($moviesArray);

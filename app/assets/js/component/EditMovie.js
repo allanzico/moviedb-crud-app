@@ -11,9 +11,9 @@ export const EditMovie = props =>{
     const movie = store.movies[props.match.params.id];
     const [title, setTitle] = useState(movie.title);
     const [produced, setProduced] = useState(movie.year_produced);
-    const [genre, setGenre] = useState(movie.genre);
+    const [genre, setGenre] = useState(movie.genre_id);
 
-    console.log(movie);
+   console.log(movie);
 
     return (
         <div className="container">
@@ -56,7 +56,7 @@ export const EditMovie = props =>{
                         { console.log(genre) }
                         <select value={genre} onChange={e => setGenre(e.target.value)}>
                             {
-                                genres.map(genre=>( <option value={genre.id} key={genre.id}>{genre.name}</option>)
+                                Object.values(genres).map(genre=>( <option value={genre.id} key={genre.id}>{genre.name}</option>)
                                 )
                             }
                         </select>

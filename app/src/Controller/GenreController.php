@@ -48,7 +48,7 @@ class GenreController extends AbstractController
         $genreArray = [];
 
         foreach ($genres as $genre){
-            $genreArray[]= $this->transformSingleGenre($genre);
+            $genreArray[$genre->getId()]= $this->transformSingleGenre($genre);
         }
 
         return new  JsonResponse($genreArray);

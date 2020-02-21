@@ -8,12 +8,14 @@ import Button from "reactstrap/es/Button";
 
 export  const MovieCard = props =>{
 const {store, actions} = useContext(Context);
+console.log(store.movies);
     return(
         <div>
-            {store.movies.map &&
+            {store.movies &&
             <Row style={{marginTop:40}}>
-                {store.movies.map((data, index) =>
+                {Object.values(store.movies).map((data, index) =>
                     <Col xs="4" key={index}>
+                        { console.log(data) }
                         <Card className="movies-card">
                             <CardBody >
                                 <CardTitle>{data.title}</CardTitle>

@@ -7,7 +7,7 @@ export  const AddMovie =() => {
     const genres = store.genres;
     const [title, setTitle] = useState("");
     const [produced, setProduced] = useState("");
-    const [genre, setGenre] = useState(genres[0].id);
+    const [genre, setGenre] = useState(Object.values(genres)[0].id);
 
 
     return (
@@ -19,6 +19,7 @@ export  const AddMovie =() => {
                         <label>Title</label>
                         <input
                             type="text"
+                            required
                             className="form-control"
                             placeholder="movie title"
                             onChange={e => setTitle(e.target.value)}
@@ -36,10 +37,10 @@ export  const AddMovie =() => {
 
                     <div className="form-group">
                         <label>Select Genre</label>
-                        { console.log(genre) }
+
                         <select value={genre} onChange={e => setGenre(e.target.value)}>
                             {
-                                genres.map(genre=>( <option value={genre.id} key={genre.id}>{genre.name}</option>)
+                                Object.values(genres).map(genre=>( <option value={genre.id} key={genre.id}>{genre.name}</option>)
                                 )
                             }
                    </select>

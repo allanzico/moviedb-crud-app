@@ -6,7 +6,7 @@ const getState = ({ getStore,  setStore }) => {
 	return {
 
 		store: {
-			movies: [],
+			movies: {},
 			genres:[],
 		},
 		actions: {
