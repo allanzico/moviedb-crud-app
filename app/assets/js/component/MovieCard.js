@@ -9,10 +9,15 @@ import Button from "reactstrap/es/Button";
 export  const MovieCard = props =>{
 const {store, actions} = useContext(Context);
 
+const  movies = store.movies;
+
     const sortingAlgorithms = {
         "byYearAsc": (a,b) => a.year_produced - b.year_produced,
         "byYearDesc": (a,b) => b.year_produced - a.year_produced
     };
+
+    const  sorted = Object.values(movies).sort((a,b)=>a.year_produced-b.year_produced);
+    console.log(sorted);
 
     return(
         <div>
